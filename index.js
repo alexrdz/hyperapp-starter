@@ -1,27 +1,17 @@
 import {h, app} from 'hyperapp';
-
-const state = {
-  count: 0
-};
-
-const actions = {
-  down() {
-    return state => ({count: state.count - 1});
-  },
-
-  up() {
-    return state => ({count: state.count + 1});
-  }
-};
+import state from './src/state';
+import actions from './src/actions';
+import Counter from './src/components/Counter';
 
 const view = (state, actions) => {
+  const {count} = state;
+
   return (
-    <main>
-      <h1>{state.count}</h1>
-      <button onclick={actions.down}> - </button>
-      <button onclick={actions.up}> +   </button>
-    </main>
+    <div>
+      <h1>This is a HyperApp Counter</h1>
+      <Counter count={count} actions={actions} />
+    </div>  
   );
-};
+}
 
 const main = app(state, actions, view, document.body);
