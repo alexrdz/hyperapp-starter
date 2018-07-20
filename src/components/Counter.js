@@ -5,7 +5,7 @@ const Counter = (props) => {
     count, 
     actions: {down, up}
   } = props;
-
+  
   return (
     <main>
       <h1>{count}</h1>
